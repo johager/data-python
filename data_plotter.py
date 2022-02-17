@@ -16,12 +16,6 @@ for invoice in invoices:
     totals[line[2]] += float(line[3]) * float(line[4])
 print(totals)
 
-y = []
-for total in totals.values():
-    y.append(total)
-
-print(y)
-
 # Close your open file.
 invoices.close()
 
@@ -39,7 +33,7 @@ fig, ax = plt.subplots()
 # ax.set_title('How fast do you want to go today?')
 
 x_pos = np.arange(len(totals))
-ax.bar(x_pos, y, color=[(.42, .25, .15 ,1), 'beige', 'pink'], edgecolor="black")
+ax.bar(x_pos, totals.values(), color=[(.42, .25, .15 ,1), 'beige', 'pink'], edgecolor="black")
 ax.set_xticks(x_pos, labels=totals.keys())
 ax.set_ylim(0, 450)
 ax.set_yticks(np.arange(0, 450, 50))
