@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 plt.style.use("_mpl-gallery")
 
+# calculate the sales of the three cupcake flavors from the CSV file
+
 invoices = open("CupcakeInvoices.csv")
 
 totals = {
@@ -16,10 +18,14 @@ for invoice in invoices:
     totals[line[2]] += float(line[3]) * float(line[4])
 print(totals)
 
-# Close your open file.
 invoices.close()
 
-fig, ax = plt.subplots()
+# plot the sales
+
+#
+# the following commented-out code is the sample code from Matplotlib for a horizontal bar plot with text for the x-axis values
+# it was used as a template for the vertical bar chart presented here
+#
 
 # people = ('Tom', 'Dick', 'Harry', 'Slim', 'Jim')
 # y_pos = np.arange(len(people))
@@ -31,6 +37,8 @@ fig, ax = plt.subplots()
 # ax.invert_yaxis()  # labels read top-to-bottom
 # ax.set_xlabel('Performance')
 # ax.set_title('How fast do you want to go today?')
+
+fig, ax = plt.subplots()
 
 x_pos = np.arange(len(totals))
 ax.bar(x_pos, totals.values(), color=[(.42, .25, .15 ,1), 'beige', 'pink'], edgecolor="black")
